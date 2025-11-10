@@ -1,0 +1,31 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -o ./tmp/main ./cmd/api/main.go"
+bin = "./tmp/main"
+full_bin = ""
+args = ["-port", "8080"]
+delay = 1000 # ms
+exclude_dir = ["tmp", "vendor", "node_modules", ".git"]
+exclude_file = []
+exclude_regex = ["_test.go"]
+include_dir = []
+include_ext = ["go", "tpl", "tmpl", "html"]
+kill_delay = "0s"
+log = "build-errors.log"
+send_interrupt = false
+stop_on_error = true
+
+[log]
+time = false
+
+[custom_args]
+# Example:
+# [custom_args.foo]
+# cmd = "echo foo"
+# args = ["bar"]
+# delay = 1000
+
+[misc]
+clean_on_exit = true

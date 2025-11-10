@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"go-gin-starter/internal/services"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -51,7 +52,14 @@ func (c *BookController) GetBooks(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, books)
+	modifiedBooks := len(books)
+	// ctx.JSON(http.StatusOK, books)
+	ctx.JSON(http.StatusOK, gin.H{
+		"data":    books,
+		"count":   modifiedBooks,
+		"success": true,
+		"message": "Fetched successfully",
+	})
 }
 
 // GetBook handles the request to get a book by ID

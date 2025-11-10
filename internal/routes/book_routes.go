@@ -2,7 +2,8 @@ package routes
 
 import (
 	"go-gin-starter/internal/controllers"
-	"go-gin-starter/internal/middleware"
+	// "go-gin-starter/internal/middleware"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,7 +12,7 @@ func BookRoutes(router *gin.Engine) {
 	bookController := controllers.NewBookController()
 
 	book := router.Group("/books")
-	book.Use(middleware.AuthMiddleware())
+	// book.Use(middleware.AuthMiddleware())
 	{
 		book.POST("/", bookController.CreateBook)
 		book.GET("/", bookController.GetBooks)
